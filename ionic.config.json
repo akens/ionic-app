@@ -4,5 +4,11 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/isz_base",
+      "proxyUrl": "http://isz.ishangzu.com/isz_base"
+    }
+  ]
 }

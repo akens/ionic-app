@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/throw';
 
 
 @Injectable()
@@ -28,6 +29,7 @@ export class HttpService {
   public httpGetNoAuth(url: string) {
 
     var headers = new Headers();
+    headers.append("Access-Control-Allow-Origin","*");
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
     return this.http.get(url, options).toPromise()
@@ -38,6 +40,7 @@ export class HttpService {
   }
   public httpPostNoAuth(url: string, body: any) {
     var headers = new Headers();
+    headers.append("Access-Control-Allow-Origin","*");
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
     return this.http.post(url, body, options).toPromise()
@@ -61,6 +64,6 @@ export class HttpService {
 
   private handleError(error: Response) {
     console.log(error);
-    return Observable.throw(error.json().error || 'Server Error');
+    return Observable.throw(error.json());
   }
 }

@@ -11,7 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ListPage} from "../pages/list/list";
-
+import { HttpModule} from '@angular/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,6 +23,7 @@ import {ListPage} from "../pages/list/list";
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
